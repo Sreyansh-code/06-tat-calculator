@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>TAT Calculator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>TAT Calculator</h1>
+    <p class="subtitle">Compute the business-day due date for a BGV check.</p>
+    <div class="toolbox" style="display:flex;gap:8px;margin-top:8px;">
+      <button id="reset-btn" type="button" title="Utility: resets sample data, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;">↺ Reset data</button>
+      <a id="spec-link" href="/spec" target="_blank" title="Utility: opens the spec, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;text-decoration:none;color:#1a1a1a;">📋 Spec</a>
+      <a class="header-btn" href="/openapi.json" target="_blank" title="Utility: OpenAPI collection, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;text-decoration:none;color:#1a1a1a;">📥 API collection</a>
+    </div>
+  </header>
+
+  <main id="app-section">
+    <section class="panel">
+      <h2>Calculate Due Date</h2>
+      <form id="tat-form">
+        <div class="field">
+          <label for="start-date">Start Date</label>
+          <input type="date" id="start-date" />
+        </div>
+        <div class="field">
+          <label for="tat-days">TAT (business days)</label>
+          <input type="number" id="tat-days" placeholder="e.g. 5" />
+        </div>
+        <button type="submit">Calculate</button>
+      </form>
+      <div id="form-error" class="message error"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Result</h2>
+      <table class="result-table">
+        <tr><td>Due Date</td><td id="due-date">-</td></tr>
+        <tr><td>Business Days Used</td><td id="days-used">-</td></tr>
+        <tr><td>Status</td><td id="overdue-badge"><span class="badge badge-ontrack">On Track</span></td></tr>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Fixed Holidays</h2>
+      <ul id="holidays-list">
+        <li>26 Jan — Republic Day</li>
+        <li>15 Aug — Independence Day</li>
+        <li>2 Oct — Gandhi Jayanti</li>
+        <li>25 Dec — Christmas</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>window.SV_APP_ID='06';window.SV_SCOREBOARD='https://sv-qa-scoreboard.onrender.com';</script>
+  <script src="report-widget.js"></script>
+</body>
+</html>
