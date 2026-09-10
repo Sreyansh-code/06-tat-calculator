@@ -41,8 +41,7 @@ document.getElementById("tat-form").addEventListener("submit", async (e) => {
       errorEl.textContent = data.error || "Failed to calculate TAT.";
       document.getElementById("due-date").textContent = "-";
       document.getElementById("days-used").textContent = "-";
-      document.getElementById("overdue-badge").innerHTML =
-        '<span class="badge badge-ontrack">On Track</span>';
+      document.getElementById("overdue-badge").textContent = "-";
       return;
     }
 
@@ -87,7 +86,6 @@ document.getElementById("reset-btn").addEventListener("click", async () => {
   document.getElementById("form-error").textContent = "";
   document.getElementById("due-date").textContent = "-";
   document.getElementById("days-used").textContent = "-";
-  document.getElementById("overdue-badge").innerHTML =
-    '<span class="badge badge-ontrack">On Track</span>';
+  document.getElementById("overdue-badge").textContent = "-";
   showToast("Data reset");
 });
